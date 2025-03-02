@@ -1,0 +1,164 @@
+/* styles.css */
+body {
+    background-color: black;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scroll */
+}
+
+.terminal {
+    width: 80%;
+    max-width: 800px;
+    background-color: black;
+    border: 1px solid #00ff00;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.output {
+    height: 80vh;
+    overflow: hidden; /* Prevent scroll */
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    background: none;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    outline: none;
+}
+
+.blinking-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: #00ff00;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { background-color: transparent; }
+    50% { background-color: #00ff00; }
+}
+
+.typing {
+    border-right: 2px solid #00ff00;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff00; }
+}
+
+.error {
+    color: red;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #333;
+    border: 1px solid #00ff00;
+    margin-top: 10px;
+}
+
+.progress {
+    width: 0;
+    height: 20px;
+    background-color: #00ff00;
+    animation: progress 5s linear;
+}
+
+@keyframes progress {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border: 1px solid #00ff00;
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+    width: 300px;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal p {
+    margin: 0;
+    color: #00ff00;
+}
+
+.modal-header {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.modal-button {
+    background-color: #00ff00;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-button:hover {
+    background-color: #00cc00;
+}
